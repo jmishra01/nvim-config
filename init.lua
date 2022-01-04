@@ -1,0 +1,7 @@
+require "options"
+require "keymaps"
+require "plugins"
+require "telescope"
+require "colorscheme"
+require "comment"
+require "gitsigns"
