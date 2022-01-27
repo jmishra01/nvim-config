@@ -3,6 +3,6 @@ try
   colorscheme darkplus
 catch /^Vim\%((\a\+)\)\=:E185/
   colorscheme darkplus
-  set background=dark
+  set background=light
 endtry
 ]]
