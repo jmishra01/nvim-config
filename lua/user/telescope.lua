@@ -100,7 +100,7 @@ if not utils_status then
   return
 end
 
-M.nkeymap("<leader>p", "<Cmd>Telescope find_files<CR>")
+M.nkeymap("<C-p>", "<Cmd>Telescope find_files<CR>")
 M.nkeymap("<leader>lg", "<Cmd>Telescope live_grep<CR>")
 M.nkeymap("<leader>fb", "<Cmd>Telescope buffers<CR>")
 M.nkeymap("<leader>fh", "<Cmd>Telescope help_tags<CR>")
