@@ -1,7 +1,7 @@
 -- Construct file
 vim.cmd [[
 try
-  colorscheme terafox
+  colorscheme github_dark
 catch /^Vim\%((\a\+)\)\=:E185/
   colorscheme darkplus
   set background=light
