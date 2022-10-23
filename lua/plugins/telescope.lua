@@ -98,12 +98,10 @@ telescope.setup {
   },
 }
 
-local utils_status, M = pcall(require, "user.utils")
-if not utils_status then
+local status_ok, utils = pcall(require, "core.utils")
+if not status_ok then
   return
 end
 
-M.nkeymap("<C-p>", "<Cmd>Telescope find_files<CR>")
-M.nkeymap("<leader>lg", "<Cmd>Telescope live_grep<CR>")
-M.nkeymap("<leader>fb", "<Cmd>Telescope buffers<CR>")
-M.nkeymap("<leader>fh", "<Cmd>Telescope help_tags<CR>")
+utils.nkeymap("<C-p>", "<Cmd>Telescope find_files<CR>")
+utils.nkeymap("<C-b>", "<Cmd>Telescope builtin<CR>")

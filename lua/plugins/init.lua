@@ -1,0 +1,5 @@
+require "plugins.packages"
+require "plugins.colorscheme"
+require "plugins.nvim-tree"
+require "plugins.telescope"
+require "plugins.gitsigns"
