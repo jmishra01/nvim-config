@@ -1,2 +1,1 @@
-print("Colorscheme")
-vim.cmd [[colorscheme habamax]]
+vim.cmd [[colorscheme github_dark_default]]

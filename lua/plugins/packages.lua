@@ -31,21 +31,39 @@ packer.init {
 
 return packer.startup(function(use)
   use "wbthomason/packer.nvim"
+
   -- Colorscheme
   use "projekt0n/github-nvim-theme"
+
   -- Folder Explore
   use {
     'nvim-tree/nvim-tree.lua',
     requires = {
       'nvim-tree/nvim-web-devicons',
-    },
-    tag = 'nightly'
+    }, 
   }
+  -- Telescope
   use {
     'nvim-telescope/telescope.nvim',
     requires = {{'nvim-lua/plenary.nvim'}}
   }
-  use {
-  'lewis6991/gitsigns.nvim'
-  }
+
+  -- Git
+  use 'lewis6991/gitsigns.nvim'  -- to check blame and changes
+
+  -- snippets
+  use "L3MON4D3/LuaSnip" --snippet engine
+  use "saadparwaiz1/cmp_luasnip"
+  use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
+
+  -- LSP
+  use "neovim/nvim-lspconfig" -- enable LSP
+  use "williamboman/nvim-lsp-installer" -- simple to use language server installer
+
+  -- cmp plugins
+  use "hrsh7th/nvim-cmp"
+  use "hrsh7th/cmp-buffer"
+  use "hrsh7th/cmp-path"
+  use "hrsh7th/cmp-cmdline"
+  use "hrsh7th/cmp-nvim-lsp"
 end)
