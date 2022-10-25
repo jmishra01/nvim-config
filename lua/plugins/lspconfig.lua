@@ -50,7 +50,20 @@ lspconfig['pyright'].setup{
 }
 
 -- LUA
-lspconfig['luau_lsp'].setup{
+lspconfig['sumneko_lua'].setup{
   on_attach = on_attach,
-  flags = lsp_flags
+  flags = lsp_flags,
+  settings = {
+    Lua = {
+      runtime = { version = "LuaJIT", vim.split(package.path, ';'), },
+      completion = { keywordSnippet = "Disable", },
+      diagnostics = { enable = true, globals = {"vim", "describe", "it", "before_each", "after_each"},},
+      workspace = {
+        library = {
+          [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+          [vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true,
+        }
+      }
+    }
+  }
 }
