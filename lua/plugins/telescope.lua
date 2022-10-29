@@ -10,7 +10,8 @@ end
 
 telescope.setup {
   defaults = {
-
+    layout_strategy = 'cursor',
+    resolve_width = 1,
     prompt_prefix = " ",
     selection_caret = " ",
     path_display = { "smart" },

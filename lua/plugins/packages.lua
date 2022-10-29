@@ -2,7 +2,7 @@
 vim.cmd [[
 	augroup packer_user_config
 		autocmd!
-		autocmd BufWritePost plugins.lua source <afile> | PackerSync
+		autocmd BufWritePost packages.lua source <afile> | PackerSync
 	augroup end
 ]]
 
@@ -47,6 +47,12 @@ return packer.startup(function(use)
     'nvim-telescope/telescope.nvim',
     requires = {{'nvim-lua/plenary.nvim'}}
   }
+
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+  }
+
 
   -- Git
   use 'lewis6991/gitsigns.nvim'  -- to check blame and changes
