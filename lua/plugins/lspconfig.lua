@@ -47,6 +47,30 @@ lspconfig['pyright'].setup{
     flags = lsp_flags,
 }
 
+lspconfig["clangd"].setup {
+  on_attach = on_attach,
+  flags = lsp_flags,
+  cmd = {
+    "clangd",
+    "--background-index",
+    '--query-driver="/usr/bin/gcc, \
+                    /usr/bin/g++, \
+                    /usr/bin/clang, \
+                    /usr/bin/clang++"',
+    "-I/home/netlink/.local/include/opencv4",
+    "--clang-tidy",
+    "--all-scopes-completion",
+    "--cross-file-rename",
+    "--completion-style=detailed",
+    "--header-insertion-decorators",
+    "--header-insertion=iwyu",
+    "--pch-storage=memory",
+    "--enable-config",
+    "--log=verbose"
+  },
+  filetypes = {"c", "cpp", "objc", "objcpp"},
+  single_file_support = true
+}
 
 -- LUA
 local runtime_path = vim.split(package.path, ';')
