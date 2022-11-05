@@ -1,3 +1,20 @@
+local status_ok, installer = pcall(require, "nvim-lsp-installer")
+
+if status_ok then
+  print("nvim-lsp-installer execute")
+  installer.setup({
+    automatic_installation = true, -- automatically detect which servers to install (based on which servers are set up via lspconfig)
+    ui = {
+        icons = {
+            server_installed = "✓",
+            server_pending = "➜",
+            server_uninstalled = "✗"
+        }
+    }
+})
+end
+
+
 local status_ok, utils = pcall(require, "core.utils")
 
 if not status_ok then
@@ -38,6 +55,7 @@ end
 
 local lspconfig = require('lspconfig')
 
+local lsputils = require('lspconfig.util')
 
 local lsp_flags = { debounce_text_changes = 150 }
 
@@ -46,6 +64,17 @@ lspconfig['pyright'].setup{
     on_attach = on_attach,
     flags = lsp_flags,
 }
+
+-- GOLANG
+lspconfig.gopls.setup{
+    on_attach = on_attach,
+    flags = lsp_flags,
+    cmd = { "gopls" },
+    filetypes = { "go", "gomod", "gowork", "gotmpl" },
+    root_dir = lsputils.root_pattern("go.mod", ".gi"),
+    single_file_support = true
+}
+
 
 lspconfig["clangd"].setup {
   on_attach = on_attach,
@@ -81,12 +110,12 @@ lspconfig['sumneko_lua'].setup{
   flags = lsp_flags,
   settings = {
     Lua = {
-      runtime = { 
+      runtime = {
         version = "LuaJIT",
-        path = runtime_path, 
+        path = runtime_path,
       },
       completion = { keywordSnippet = "Disable", },
-      diagnostics = { 
+      diagnostics = {
         enable = true,
         globals = {
           "vim",
