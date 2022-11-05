@@ -1,3 +1,3 @@
 require "core.disable"
-require "core.basic"
+require "core.options"
 require "core.keymaps"
