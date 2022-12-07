@@ -34,7 +34,7 @@ return packer.startup(function(use)
 
   -- Colorscheme
   use "projekt0n/github-nvim-theme"
-
+  use "EdenEast/nightfox.nvim"
   -- Folder Explore
   use {
     'nvim-tree/nvim-tree.lua',
