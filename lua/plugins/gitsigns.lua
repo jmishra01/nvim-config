@@ -54,6 +54,6 @@ if not status_ok then
   return
 end
 
-utils.nkeymap("<leader>p", ":Gitsigns preview_hunk<CR>")
+utils.nkeymap("<leader>p", ":Gitsigns preview_hunk_inline<CR>")
 utils.nkeymap("<leader>n", ":Gitsigns next_hunk<CR>")
 utils.nkeymap("<leader>m", ":Gitsigns prev_hunk<CR>")
