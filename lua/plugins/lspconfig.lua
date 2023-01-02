@@ -1,7 +1,6 @@
 local status_ok, installer = pcall(require, "nvim-lsp-installer")
 
 if status_ok then
-  print("nvim-lsp-installer execute")
   installer.setup({
     automatic_installation = true, -- automatically detect which servers to install (based on which servers are set up via lspconfig)
     ui = {
@@ -31,6 +30,7 @@ vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
+
   -- Enable completion triggered by <c-x><c-o>
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
@@ -59,11 +59,48 @@ local lsputils = require('lspconfig.util')
 
 local lsp_flags = { debounce_text_changes = 150 }
 
+
+--
 -- PYTHON
+local function get_python_path(workspace)
+  -- Use activated virtualenv
+  if vim.env.VIRTUAL_ENV then
+    return path.join(vim.env.VIR, 'bin', 'python')
+  end
+   -- Find and use vurtualenv in workspace directory
+   for _, pattern in ipairs({'*', '.*'}) do
+     local match = vim.fn.glob(path.join(workspace, pattern, 'pyenv.cfg'))
+     if match ~= '' then
+       return path.join(path.dirname(match), 'bin', 'python')
+     end
+   end
+
+   -- Fallback to system python
+   return exepath('python3') or exepath('python') or 'python'
+ end
+
+
 lspconfig['pyright'].setup{
     on_attach = on_attach,
     flags = lsp_flags,
+    before_init = function(_, config)
+      config.settings.python.pythonPath = get_python_path(config.root_dir)
+    end
 }
+
+-- RUST
+require('lspconfig')['rust_analyzer'].setup{
+  on_attach=on_attach,
+  flags = lsp_flags,
+  settings = {
+    ["rust_analyzer"] = {
+      imports = { granularity = { group = "module" }, prefix = "self" },
+      cargo = { buildScripts = { enable = true} },
+      procMarco = {enable = true}
+    }
+  }
+}
+
 
 -- GOLANG
 lspconfig.gopls.setup{

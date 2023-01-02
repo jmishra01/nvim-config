@@ -24,28 +24,30 @@ end
 packer.init {
   display = {
     open_fn = function()
-      return require("packer.util").float { border = "rounded" }
+      return require('packer.util').float { border = 'rounded' }
     end
   }
 }
 
 return packer.startup(function(use)
-  use "wbthomason/packer.nvim"
+  use 'wbthomason/packer.nvim'
 
-  -- Colorscheme
-  use "projekt0n/github-nvim-theme"
-  use "EdenEast/nightfox.nvim"
+  -- Theme
+  use 'projekt0n/github-nvim-theme'
+  use 'EdenEast/nightfox.nvim'
+  use 'sainnhe/gruvbox-material'
+  use 'sainnhe/everforest'
   -- Folder Explore
   use {
     'nvim-tree/nvim-tree.lua',
     requires = {
       'nvim-tree/nvim-web-devicons',
-    }, 
+    },
   }
   -- Telescope
   use {
     'nvim-telescope/telescope.nvim',
-    requires = {{'nvim-lua/plenary.nvim'}}
+    requires = {{'nvim-lua/plenary.nvim'}, {'nvim-lua/popup.nvim'}}
   }
 
   use {
@@ -58,18 +60,25 @@ return packer.startup(function(use)
   use 'lewis6991/gitsigns.nvim'  -- to check blame and changes
 
   -- snippets
-  use "L3MON4D3/LuaSnip" --snippet engine
-  use "saadparwaiz1/cmp_luasnip"
-  use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
+  use 'L3MON4D3/LuaSnip' --snippet engine
+  use 'saadparwaiz1/cmp_luasnip'
+  use 'rafamadriz/friendly-snippets' -- a bunch of snippets to use
 
   -- LSP
-  use "neovim/nvim-lspconfig" -- enable LSP
-  use "williamboman/nvim-lsp-installer" -- simple to use language server installer
+  use 'neovim/nvim-lspconfig' -- enable LSP
+  use 'williamboman/nvim-lsp-installer' -- simple to use language server installer
+  use 'ray-x/lsp_signature.nvim'
 
   -- cmp plugins
-  use "hrsh7th/nvim-cmp"
-  use "hrsh7th/cmp-buffer"
-  use "hrsh7th/cmp-path"
-  use "hrsh7th/cmp-cmdline"
-  use "hrsh7th/cmp-nvim-lsp"
+  use 'hrsh7th/nvim-cmp'
+  use 'hrsh7th/cmp-buffer'
+  use 'hrsh7th/cmp-path'
+  use 'hrsh7th/cmp-cmdline'
+  use 'hrsh7th/cmp-nvim-lsp'
+
+  use 'lark-parser/vim-lark-syntax'
+
+  -- Rust
+  use 'simrat39/rust-tools.nvim'
+  use 'preservim/tagbar'
 end)
