@@ -79,6 +79,11 @@ _G.packer_plugins = {
     path = "/home/jmishra/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
+  ["bufferline.nvim"] = {
+    loaded = true,
+    path = "/home/jmishra/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
+    url = "https://github.com/akinsho/bufferline.nvim"
+  },
   ["cmp-buffer"] = {
     loaded = true,
     path = "/home/jmishra/.local/share/nvim/site/pack/packer/start/cmp-buffer",
@@ -103,6 +108,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/jmishra/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
+  },
+  ["dap-install"] = {
+    loaded = true,
+    path = "/home/jmishra/.local/share/nvim/site/pack/packer/start/dap-install",
+    url = "https://github.com/pedrohms/dap-install"
   },
   everforest = {
     loaded = true,
@@ -139,15 +149,56 @@ _G.packer_plugins = {
     path = "/home/jmishra/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
   },
+  ["mind.nvim"] = {
+    config = { "\27LJ\2\n2\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\tmind\frequire\0" },
+    loaded = true,
+    path = "/home/jmishra/.local/share/nvim/site/pack/packer/start/mind.nvim",
+    url = "https://github.com/phaazon/mind.nvim"
+  },
+  ["neo-tree.nvim"] = {
+    loaded = true,
+    path = "/home/jmishra/.local/share/nvim/site/pack/packer/start/neo-tree.nvim",
+    url = "https://github.com/nvim-neo-tree/neo-tree.nvim"
+  },
   ["nightfox.nvim"] = {
     loaded = true,
     path = "/home/jmishra/.local/share/nvim/site/pack/packer/start/nightfox.nvim",
     url = "https://github.com/EdenEast/nightfox.nvim"
   },
+  ["nui.nvim"] = {
+    loaded = true,
+    path = "/home/jmishra/.local/share/nvim/site/pack/packer/start/nui.nvim",
+    url = "https://github.com/MunifTanjim/nui.nvim"
+  },
   ["nvim-cmp"] = {
     loaded = true,
     path = "/home/jmishra/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
+  },
+  ["nvim-dap"] = {
+    loaded = true,
+    path = "/home/jmishra/.local/share/nvim/site/pack/packer/start/nvim-dap",
+    url = "https://github.com/mfussenegger/nvim-dap"
+  },
+  ["nvim-dap-go"] = {
+    loaded = true,
+    path = "/home/jmishra/.local/share/nvim/site/pack/packer/start/nvim-dap-go",
+    url = "https://github.com/leoluz/nvim-dap-go"
+  },
+  ["nvim-dap-python"] = {
+    loaded = true,
+    path = "/home/jmishra/.local/share/nvim/site/pack/packer/start/nvim-dap-python",
+    url = "https://github.com/mfussenegger/nvim-dap-python"
+  },
+  ["nvim-dap-ui"] = {
+    loaded = true,
+    path = "/home/jmishra/.local/share/nvim/site/pack/packer/start/nvim-dap-ui",
+    url = "https://github.com/rcarriga/nvim-dap-ui"
+  },
+  ["nvim-dap-virtual-text"] = {
+    loaded = true,
+    path = "/home/jmishra/.local/share/nvim/site/pack/packer/start/nvim-dap-virtual-text",
+    url = "https://github.com/theHamsta/nvim-dap-virtual-text"
   },
   ["nvim-lsp-installer"] = {
     loaded = true,
@@ -159,10 +210,10 @@ _G.packer_plugins = {
     path = "/home/jmishra/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
   },
-  ["nvim-tree.lua"] = {
+  ["nvim-treesitter"] = {
     loaded = true,
-    path = "/home/jmishra/.local/share/nvim/site/pack/packer/start/nvim-tree.lua",
-    url = "https://github.com/nvim-tree/nvim-tree.lua"
+    path = "/home/jmishra/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
+    url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
   ["nvim-web-devicons"] = {
     loaded = true,
@@ -194,6 +245,11 @@ _G.packer_plugins = {
     path = "/home/jmishra/.local/share/nvim/site/pack/packer/start/tagbar",
     url = "https://github.com/preservim/tagbar"
   },
+  ["telescope-dap.nvim"] = {
+    loaded = true,
+    path = "/home/jmishra/.local/share/nvim/site/pack/packer/start/telescope-dap.nvim",
+    url = "https://github.com/nvim-telescope/telescope-dap.nvim"
+  },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/home/jmishra/.local/share/nvim/site/pack/packer/start/telescope.nvim",
@@ -203,10 +259,19 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/jmishra/.local/share/nvim/site/pack/packer/start/vim-lark-syntax",
     url = "https://github.com/lark-parser/vim-lark-syntax"
+  },
+  ["vscode.nvim"] = {
+    loaded = true,
+    path = "/home/jmishra/.local/share/nvim/site/pack/packer/start/vscode.nvim",
+    url = "https://github.com/Mofiqul/vscode.nvim"
   }
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: mind.nvim
+time([[Config for mind.nvim]], true)
+try_loadstring("\27LJ\2\n2\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\tmind\frequire\0", "config", "mind.nvim")
+time([[Config for mind.nvim]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then

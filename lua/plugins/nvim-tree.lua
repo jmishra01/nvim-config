@@ -35,6 +35,14 @@ nvim_tree.setup {
         {key = "v", cb = tree_cb "vsplit"},
       }
     },
+    float = {
+      enable = true,
+      open_win_config = {
+        col = 40,
+        height = 50,
+        border = "solid"
+      }
+    }
   }
 }
 

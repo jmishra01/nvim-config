@@ -32,18 +32,24 @@ packer.init {
 return packer.startup(function(use)
   use 'wbthomason/packer.nvim'
 
-  -- Theme
+  -- ColorTheme
+  use 'Mofiqul/vscode.nvim'
   use 'projekt0n/github-nvim-theme'
   use 'EdenEast/nightfox.nvim'
   use 'sainnhe/gruvbox-material'
   use 'sainnhe/everforest'
   -- Folder Explore
+  -- use {'nvim-tree/nvim-tree.lua', requires = {'nvim-tree/nvim-web-devicons'} }
   use {
-    'nvim-tree/nvim-tree.lua',
-    requires = {
-      'nvim-tree/nvim-web-devicons',
-    },
+    "nvim-neo-tree/neo-tree.nvim",
+    branch="v2.x",
+    requires={
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons",
+      "MunifTanjim/nui.nvim"
+    }
   }
+  --
   -- Telescope
   use {
     'nvim-telescope/telescope.nvim',
@@ -54,8 +60,39 @@ return packer.startup(function(use)
     'nvim-lualine/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons', opt = true }
   }
+  use {
+    'akinsho/bufferline.nvim',
+    tag = "v3.*",
+    requires="nvim-tree/nvim-web-devicons"
+  }
 
+  use {'nvim-treesitter/nvim-treesitter', build = ':TSUpdate'}
+  -- Debugger
+  use {
+    "mfussenegger/nvim-dap",
+    requires = {
+      'rcarriga/nvim-dap-ui',
+      'theHamsta/nvim-dap-virtual-text',
+      'nvim-telescope/telescope-dap.nvim',
+      'pedrohms/dap-install'
+    }
+  }
 
+  -- Debugger for Python
+  use { 'mfussenegger/nvim-dap-python' }
+
+  -- Debugger for Golang
+  use { 'leoluz/nvim-dap-go' }
+
+  -- Mind for document
+  use {
+    'phaazon/mind.nvim',
+    branch = 'v2.2',
+    requires = { 'nvim-lua/plenary.nvim' },
+    config = function()
+      require'mind'.setup()
+    end
+  }
   -- Git
   use 'lewis6991/gitsigns.nvim'  -- to check blame and changes
 
