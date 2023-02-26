@@ -7,6 +7,14 @@ if not dap_ui_status_ok then return end
 local dap_install_status_ok, dap_install = pcall(require, "dap-install")
 if not dap_install_status_ok then return end
 
+local dap_virtual_status_ok, dap_virtual_text = pcall(require, "nvim-dap-virtual-text")
+if not dap_virtual_status_ok then return end
+
+dap_virtual_text.setup {
+  enabled = true,
+  enabled_commands = true,
+  all_frames = true
+}
 dap_install.setup {}
 
 local status_ok, dap_py = pcall(require, 'dap-python')
@@ -20,8 +28,8 @@ local status_ok, utils = pcall(require, "core.utils")
 if not status_ok then return end
 
 utils.nkeymap("<F5>", "<Cmd>lua require'dap'.continue()<CR>")
-utils.nkeymap("<Leader>so", "<Cmd>lua require'dap'.step_over()<CR>")
-utils.nkeymap("<Leader>si", "<Cmd>lua require'dap'.step_into()<CR>")
+utils.nkeymap("<C-s>", "<Cmd>lua require'dap'.step_over()<CR>")
+utils.nkeymap("<C-i>", "<Cmd>lua require'dap'.step_into()<CR>")
 utils.nkeymap("<Leader>su", "<Cmd>lua require'dap'.step_out()<CR>")
 utils.nkeymap("<Leader>b", "<Cmd>lua require'dap'.toggle_breakpoint()<CR>")
 utils.nkeymap("<Leader>B", "<Cmd>lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>")

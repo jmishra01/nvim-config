@@ -102,6 +102,7 @@ return packer.startup(function(use)
   use 'rafamadriz/friendly-snippets' -- a bunch of snippets to use
 
   -- LSP
+  use "folke/neodev.nvim" -- to show signature of methods
   use 'neovim/nvim-lspconfig' -- enable LSP
   use 'williamboman/nvim-lsp-installer' -- simple to use language server installer
   use 'ray-x/lsp_signature.nvim'
@@ -118,4 +119,24 @@ return packer.startup(function(use)
   -- Rust
   use 'simrat39/rust-tools.nvim'
   use 'preservim/tagbar'
+  use {
+    "nvim-neorg/neorg",
+    config = function()
+        require('neorg').setup {
+            load = {
+                ["core.defaults"] = {}, -- Loads default behaviour
+                ["core.norg.concealer"] = {}, -- Adds pretty icons to your documents
+                ["core.norg.dirman"] = { -- Manages Neorg workspaces
+                    config = {
+                        workspaces = {
+                            notes = "~/notes",
+                        },
+                    },
+                },
+            },
+        }
+    end,
+    run = ":Neorg sync-parsers",
+    requires = "nvim-lua/plenary.nvim",
+}
 end)
