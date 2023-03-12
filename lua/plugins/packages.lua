@@ -1,4 +1,4 @@
--- Autocommand that reloads neovim whenever you save the plugins.lua file
+-- Autocommand that reloads neovim whenever you save the plugins.lua filepack
 vim.cmd [[
 	augroup packer_user_config
 		autocmd!
@@ -38,6 +38,10 @@ return packer.startup(function(use)
   use 'EdenEast/nightfox.nvim'
   use 'sainnhe/gruvbox-material'
   use 'sainnhe/everforest'
+  use 'andersevenrud/nordic.nvim'
+  use 'rmehri01/onenord.nvim'
+  use 'maxmx03/solarized.nvim'
+  use 'folke/tokyonight.nvim'
   -- Folder Explore
   -- use {'nvim-tree/nvim-tree.lua', requires = {'nvim-tree/nvim-web-devicons'} }
   use {
@@ -106,6 +110,9 @@ return packer.startup(function(use)
   use 'neovim/nvim-lspconfig' -- enable LSP
   use 'williamboman/nvim-lsp-installer' -- simple to use language server installer
   use 'ray-x/lsp_signature.nvim'
+  use 'jose-elias-alvarez/null-ls.nvim'
+  use 'williamboman/mason.nvim'
+  use 'williamboman/mason-lspconfig.nvim'
 
   -- cmp plugins
   use 'hrsh7th/nvim-cmp'
@@ -115,6 +122,17 @@ return packer.startup(function(use)
   use 'hrsh7th/cmp-nvim-lsp'
 
   use 'lark-parser/vim-lark-syntax'
+
+  use 'windwp/nvim-autopairs'
+  use 'windwp/nvim-ts-autotag'
+
+   use { 'numToStr/Comment.nvim',
+    requires = {
+      'JoosepAlviste/nvim-ts-context-commentstring'
+    }
+  }
+
+  use "glepnir/lspsaga.nvim" -- LSP UI
 
   -- Rust
   use 'simrat39/rust-tools.nvim'
@@ -127,14 +145,8 @@ return packer.startup(function(use)
                 ["core.defaults"] = {}, -- Loads default behaviour
                 ["core.norg.concealer"] = {}, -- Adds pretty icons to your documents
                 ["core.norg.dirman"] = { -- Manages Neorg workspaces
-                    config = {
-                        workspaces = {
-                            notes = "~/notes",
-                        },
-                    },
-                },
-            },
-        }
+                    config = {workspaces = {notes = "~/notes"}}},
+            }}
     end,
     run = ":Neorg sync-parsers",
     requires = "nvim-lua/plenary.nvim",

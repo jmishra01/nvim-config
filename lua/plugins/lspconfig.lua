@@ -30,7 +30,7 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
   vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
   vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
-  vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
+--  vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
   vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
   vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
   vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, bufopts)
@@ -110,39 +110,6 @@ lspconfig.gopls.setup {
 
 
 lspconfig["ccls"].setup{}
--- lspconfig["clangd"].setup {
---   on_attach = on_attach,
---   flags = lsp_flags,
---   cmd = {
---     "clangd",
---     "--background-index",
---     '--query-driver="/usr/bin/gcc, \
---                     /usr/bin/g++, \
---                     /usr/bin/clang, \
---                     /usr/bin/clang++"',
---     "-I/home/netlink/.local/include/opencv4",
---     "--clang-tidy",
---     "--all-scopes-completion",
---     "--cross-file-rename",
---     "--completion-style=detailed",
---     "--header-insertion-decorators",
---     "--header-insertion=iwyu",
---     "--pch-storage=memory",
---     "--enable-config",
---     "--log=verbose"
---   },
---   filetypes = { "c", "cpp", "objc", "objcpp" },
---   single_file_support = true,
---   root_dir=lsputils.root_pattern(
---           '.clangd',
---           '.clang-tidy',
---           '.clang-format',
---           'compile_commands.json',
---           'compile_flags.txt',
---           'configure.ac',
---           '.git'
---         )
--- }
 
 -- LUA
 local runtime_path = vim.split(package.path, ';')
@@ -178,3 +145,6 @@ lspconfig['lua_ls'].setup {
     }
   }
 }
+
+-- Javascript
+lspconfig.tsserver.setup{}

@@ -13,4 +13,24 @@
 -- })
 
 
-vim.cmd [[colorscheme github_dark]]
+-- vim.cmd [[colorscheme github_dark]]
+vim.cmd [[colorscheme nordic]]
+
+
+vim.cmd [[colorscheme solarized]]
+
+
+require("nvim-treesitter.configs").setup({
+  ensure_installed = "all",
+  highlight = {
+    enable = false,
+    disable = {"css"}
+  },
+  autopairs = { enable = true },
+  indent = { enable = true, disable = { "python", "css" }},
+  context_commentstring = {
+    enable = true,
+    enable_autocmd = false,
+  }
+})
+
