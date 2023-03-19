@@ -13,3 +13,5 @@ require "plugins.mason"
 require "plugins.mason-lspconfig"
 require "plugins.lspconfig"
 require "plugins.lspsaga"
+
+require "plugins.noice"

@@ -8,16 +8,16 @@ vim.cmd [[
 
 local fn = vim.fn
 
-local install_path = fn.stdpath("data").."/site/pack/packer/start/packer.nvim"
+local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 
 if fn.empty(fn.glob(install_path)) > 0 then
-	fn.system({"git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path})
-	vim.cmd [[packadd packer.nvim]]
+  fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path })
+  vim.cmd [[packadd packer.nvim]]
 end
 
 local status_ok, packer = pcall(require, "packer")
 if not status_ok then
-	return
+  return
 end
 
 -- Have packer use a popup window
@@ -42,12 +42,12 @@ return packer.startup(function(use)
   use 'rmehri01/onenord.nvim'
   use 'maxmx03/solarized.nvim'
   use 'folke/tokyonight.nvim'
+  --
   -- Folder Explore
-  -- use {'nvim-tree/nvim-tree.lua', requires = {'nvim-tree/nvim-web-devicons'} }
   use {
     "nvim-neo-tree/neo-tree.nvim",
-    branch="v2.x",
-    requires={
+    branch = "v2.x",
+    requires = {
       "nvim-lua/plenary.nvim",
       "nvim-tree/nvim-web-devicons",
       "MunifTanjim/nui.nvim"
@@ -57,7 +57,9 @@ return packer.startup(function(use)
   -- Telescope
   use {
     'nvim-telescope/telescope.nvim',
-    requires = {{'nvim-lua/plenary.nvim'}, {'nvim-lua/popup.nvim'}}
+    requires = {
+      { 'nvim-lua/plenary.nvim' },
+      { 'nvim-lua/popup.nvim' } }
   }
 
   use {
@@ -67,10 +69,10 @@ return packer.startup(function(use)
   use {
     'akinsho/bufferline.nvim',
     tag = "v3.*",
-    requires="nvim-tree/nvim-web-devicons"
+    requires = "nvim-tree/nvim-web-devicons"
   }
 
-  use {'nvim-treesitter/nvim-treesitter', build = ':TSUpdate'}
+  use { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate' }
   -- Debugger
   use {
     "mfussenegger/nvim-dap",
@@ -94,20 +96,20 @@ return packer.startup(function(use)
     branch = 'v2.2',
     requires = { 'nvim-lua/plenary.nvim' },
     config = function()
-      require'mind'.setup()
+      require 'mind'.setup()
     end
   }
   -- Git
-  use 'lewis6991/gitsigns.nvim'  -- to check blame and changes
+  use 'lewis6991/gitsigns.nvim' -- to check blame and changes
 
   -- snippets
-  use 'L3MON4D3/LuaSnip' --snippet engine
+  use 'L3MON4D3/LuaSnip'             --snippet engine
   use 'saadparwaiz1/cmp_luasnip'
   use 'rafamadriz/friendly-snippets' -- a bunch of snippets to use
 
   -- LSP
-  use "folke/neodev.nvim" -- to show signature of methods
-  use 'neovim/nvim-lspconfig' -- enable LSP
+  use "folke/neodev.nvim"               -- to show signature of methods
+  use 'neovim/nvim-lspconfig'           -- enable LSP
   use 'williamboman/nvim-lsp-installer' -- simple to use language server installer
   use 'ray-x/lsp_signature.nvim'
   use 'jose-elias-alvarez/null-ls.nvim'
@@ -121,12 +123,10 @@ return packer.startup(function(use)
   use 'hrsh7th/cmp-cmdline'
   use 'hrsh7th/cmp-nvim-lsp'
 
-  use 'lark-parser/vim-lark-syntax'
-
   use 'windwp/nvim-autopairs'
   use 'windwp/nvim-ts-autotag'
 
-   use { 'numToStr/Comment.nvim',
+  use { 'numToStr/Comment.nvim',
     requires = {
       'JoosepAlviste/nvim-ts-context-commentstring'
     }
@@ -140,15 +140,24 @@ return packer.startup(function(use)
   use {
     "nvim-neorg/neorg",
     config = function()
-        require('neorg').setup {
-            load = {
-                ["core.defaults"] = {}, -- Loads default behaviour
-                ["core.norg.concealer"] = {}, -- Adds pretty icons to your documents
-                ["core.norg.dirman"] = { -- Manages Neorg workspaces
-                    config = {workspaces = {notes = "~/notes"}}},
-            }}
+      require('neorg').setup {
+        load = {
+          ["core.defaults"] = {},             -- Loads default behaviour
+          ["core.norg.concealer"] = {},       -- Adds pretty icons to your documents
+          ["core.norg.dirman"] = {            -- Manages Neorg workspaces
+            config = { workspaces = { notes = "~/notes" } } },
+        } }
     end,
     run = ":Neorg sync-parsers",
     requires = "nvim-lua/plenary.nvim",
-}
+  }
+
+
+  use({
+    "folke/noice.nvim",
+    requires = {
+      "MunifTanjim/nui.nvim",
+      "rcarriga/nvim-notify",
+    }
+  })
 end)
