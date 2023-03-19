@@ -42,6 +42,7 @@ return packer.startup(function(use)
   use 'rmehri01/onenord.nvim'
   use 'maxmx03/solarized.nvim'
   use 'folke/tokyonight.nvim'
+
   --
   -- Folder Explore
   use {
@@ -115,6 +116,7 @@ return packer.startup(function(use)
   use 'jose-elias-alvarez/null-ls.nvim'
   use 'williamboman/mason.nvim'
   use 'williamboman/mason-lspconfig.nvim'
+  use "glepnir/lspsaga.nvim" -- LSP UI
 
   -- cmp plugins
   use 'hrsh7th/nvim-cmp'
@@ -123,7 +125,11 @@ return packer.startup(function(use)
   use 'hrsh7th/cmp-cmdline'
   use 'hrsh7th/cmp-nvim-lsp'
 
-  use 'windwp/nvim-autopairs'
+  use {
+  'windwp/nvim-autopairs',
+  config = function() require("nvim-autopairs").setup {} end
+  }
+
   use 'windwp/nvim-ts-autotag'
 
   use { 'numToStr/Comment.nvim',
@@ -132,26 +138,9 @@ return packer.startup(function(use)
     }
   }
 
-  use "glepnir/lspsaga.nvim" -- LSP UI
-
   -- Rust
   use 'simrat39/rust-tools.nvim'
   use 'preservim/tagbar'
-  use {
-    "nvim-neorg/neorg",
-    config = function()
-      require('neorg').setup {
-        load = {
-          ["core.defaults"] = {},             -- Loads default behaviour
-          ["core.norg.concealer"] = {},       -- Adds pretty icons to your documents
-          ["core.norg.dirman"] = {            -- Manages Neorg workspaces
-            config = { workspaces = { notes = "~/notes" } } },
-        } }
-    end,
-    run = ":Neorg sync-parsers",
-    requires = "nvim-lua/plenary.nvim",
-  }
-
 
   use({
     "folke/noice.nvim",

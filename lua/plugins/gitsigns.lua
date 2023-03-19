@@ -5,7 +5,6 @@ if not status_ok then
 end
 
 gitsigns.setup {
--- require "gitsigns".setup {
   signs = {
     add = { hl = "GitSignsAdd", text = "┃", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" },
     change = { hl = "GitSignsChange", text = "┃", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
@@ -14,8 +13,8 @@ gitsigns.setup {
     changedelete = { hl = "GitSignsChange", text = "┃", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
   },
   signcolumn = true, -- Toggle with `:Gitsigns toggle_signs`
-  numhl = false, -- Toggle with `:Gitsigns toggle_numhl`
-  linehl = false, -- Toggle with `:Gitsigns toggle_linehl`
+  numhl = true,     -- Toggle with `:Gitsigns toggle_numhl`
+  linehl = false,    -- Toggle with `:Gitsigns toggle_linehl`
   word_diff = false, -- Toggle with `:Gitsigns toggle_word_diff`
   watch_gitdir = {
     interval = 1000,
@@ -49,11 +48,11 @@ gitsigns.setup {
   },
 }
 
-local status_ok, utils = pcall(require, "core.utils")
-if not status_ok then
+local utils_status, utils = pcall(require, "core.utils")
+if not utils_status then
   return
 end
 
-utils.nkeymap("<C-n>", ":Gitsigns preview_hunk_inline<CR>")
-utils.nkeymap("<C-m>", ":Gitsigns next_hunk<CR>")
-utils.nkeymap("<leader>hm", ":Gitsigns prev_hunk<CR>")
+utils.nkeymap("<C-n>", "<cmd>Gitsigns preview_hunk_inline<CR>")
+utils.nkeymap("<C-m>", "<cmd>Gitsigns next_hunk<CR>")
+utils.nkeymap("<leader>hm", "<cmd>Gitsigns prev_hunk<CR>")
