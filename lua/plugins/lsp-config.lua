@@ -33,6 +33,20 @@ return {
     require("config.lspconfig")
   end
 }, {
-  "hrsh7th/cmp-nvim-lsp-signature-help",
+    "folke/neodev.nvim", opts = {},
+    config = function ()
+      require("neodev").setup({
+        library = {
+          enabled = true,
+          runtime = true,
+          types = true,
+          plugins = true
+        },
+        setup_jsonls = true,
+        lspconfig = true,
+        pathStrict = true
+      })
+    end
+  -- "hrsh7th/cmp-nvim-lsp-signature-help",
 }
 }
