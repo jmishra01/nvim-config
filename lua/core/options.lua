@@ -1,6 +1,6 @@
 -- print("Basic NeoVim!!")
 vim.g.mapleader = " "
-vim.g.python3_host_prog = "/home/jmishra/.local/bin/python3"
+vim.g.python3_host_prog = "/home/jitendramishra/.local/bin/python3"
 -- Encoding
 vim.scriptencoding = "utf-8"
 vim.opt.encoding = "utf-8"
@@ -53,7 +53,6 @@ vim.g.lazyredraw = true
 -- Status line and command height
 vim.opt.cmdheight = 1                           -- more space in the neovim command line for displaying messages
 vim.opt.laststatus = 2
-
 
 -- Scroll
 vim.opt.scrolloff = 8
