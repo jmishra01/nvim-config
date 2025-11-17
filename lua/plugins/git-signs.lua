@@ -1,6 +1,4 @@
-return {
-  "lewis6991/gitsigns.nvim",
-  config = function()
+local config = function()
     require('gitsigns').setup {
       signs                        = {
         add          = { text = '│' },
@@ -37,8 +35,19 @@ return {
         style = 'minimal',
         relative = 'cursor',
         row = 0,
-        col = 1
+        col = 2
       },
     }
+
+  local utils = require("core.utils")
+
+  utils.nkeymap("<C-/>", ":Gitsigns preview_hunk<CR>")
+  utils.nkeymap("<leader>/", ":Gitsigns next_hunk<CR>")
   end
+
+local get_signs = {
+  "lewis6991/gitsigns.nvim",
+  config = config
 }
+
+return get_signs

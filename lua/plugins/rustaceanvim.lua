@@ -17,28 +17,28 @@ local crates = {
     end
   };
 
-local rust_quick_tests = {
-  'pgherveou/rust-quick-tests.nvim',
-  ft = { 'rust' },
-  dependencies = { 'nvim-lua/plenary.nvim' },
-  config = true,
-  keys = {
-    {
-      'K',
-      function()
-        require('rust-quick-tests').hover_actions()
-      end,
-      desc = 'Rust tests Hover actions',
-    },
-    {
-      '<leader>l',
-      function()
-        require('rust-quick-tests').replay_last()
-      end,
-      desc = 'Replay last test',
-    },
-  },
-};
+-- local rust_quick_tests = {
+--   'pgherveou/rust-quick-tests.nvim',
+--   ft = { 'rust' },
+--   dependencies = { 'nvim-lua/plenary.nvim' },
+--   config = true,
+--   keys = {
+--     {
+--       'K',
+--       function()
+--         require('rust-quick-tests').hover_actions()
+--       end,
+--       desc = 'Rust tests Hover actions',
+--     },
+--     {
+--       '<leader>l',
+--       function()
+--         require('rust-quick-tests').replay_last()
+--       end,
+--       desc = 'Replay last test',
+--     },
+--   },
+-- };
 
 
-return { rustaceanvim, crates, rust_quick_tests }
+return { rustaceanvim, crates}

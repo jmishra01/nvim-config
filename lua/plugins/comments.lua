@@ -1,6 +1,3 @@
-return {
-  {
-    "numToStr/Comment.nvim",
-    lazy = false,
-  }
-}
+local comment = { "numToStr/Comment.nvim", lazy = false, };
+
+return comment

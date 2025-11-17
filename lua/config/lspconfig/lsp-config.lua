@@ -11,19 +11,22 @@ for _, lsp in ipairs(servers) do
 end
 
 
-lspconfig["rust_analyzer"].setup({
-  capabilities = capabilities,
-  settings = {
-    ["rust-analyzer"] = {
-      procMacro = {
-        ignored = {
-          leptos_macro = {
-            "component",
-            "server"
-          }}}}
-  }
-}
-)
+-- lspconfig["rust_analyzer"].setup({
+--   capabilities = capabilities,
+--   settings = {
+--     ["rust-analyzer"] = {
+--       procMacro = {
+--         ignored = {
+--           leptos_macro = {
+--             "component",
+--             "server"
+--           }
+--         }
+--       }
+--     }
+--   }
+-- }
+-- )
 
 lspconfig["sqlls"].setup({
   capabilities = capabilities,
