@@ -1,5 +1,4 @@
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
--- local lspconfig = require("lspconfig")
 local servers = {
   "lua_ls", "ts_ls", "pyright", "gopls", "eslint", "taplo"
 }
@@ -9,24 +8,6 @@ for _, lsp in ipairs(servers) do
     capabilities = capabilities,
   })
 end
-
-
--- lspconfig["rust_analyzer"].setup({
---   capabilities = capabilities,
---   settings = {
---     ["rust-analyzer"] = {
---       procMacro = {
---         ignored = {
---           leptos_macro = {
---             "component",
---             "server"
---           }
---         }
---       }
---     }
---   }
--- }
--- )
 
 vim.lsp.config("sqlls", {
   capabilities = capabilities,
