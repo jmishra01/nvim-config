@@ -1,11 +1,11 @@
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
-local lspconfig = require("lspconfig")
+-- local lspconfig = require("lspconfig")
 local servers = {
   "lua_ls", "ts_ls", "pyright", "gopls", "eslint", "taplo"
 }
 
 for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup({
+  vim.lsp.config(lsp, {
     capabilities = capabilities,
   })
 end
@@ -28,11 +28,11 @@ end
 -- }
 -- )
 
-lspconfig["sqlls"].setup({
+vim.lsp.config("sqlls", {
   capabilities = capabilities,
-  cmd = {"sql-language-server", "up", "--method", "stdio"},
-  filetypes = {"sql", "mysql"},
-  root_dir = function ()
+  cmd = { "sql-language-server", "up", "--method", "stdio" },
+  filetypes = { "sql", "mysql" },
+  root_dir = function()
     return vim.loop.cwd()
   end
 })
@@ -62,4 +62,3 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end, opts)
   end
 })
-
