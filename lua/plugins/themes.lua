@@ -1,5 +1,5 @@
 return {
-  {"webhooked/kanso.nvim", lazy = true, priority=1000},
+  {"webhooked/kanso.nvim"},
   {"olivercederborg/poimandres.nvim", lazy = false, priority = 1000},
   {"folke/tokyonight.nvim", lazy = false, priority = 1000, opts = {} },
   {"darianmorat/gruvdark.nvim", lazy = false, priority = 1000},

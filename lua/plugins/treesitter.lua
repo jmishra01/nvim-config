@@ -6,7 +6,7 @@ return {
     require("nvim-treesitter").setup({
     ensure_installed = {
       "c", "lua", "vim", "vimdoc", "query", "javascript", "html", "css",
-      "python", "rust", "go", "svelte"
+      "python", "rust", "go", "svelte", "typescript"
     },
     highlight = {
       enable = true,

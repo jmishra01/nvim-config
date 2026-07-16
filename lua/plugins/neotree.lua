@@ -10,5 +10,10 @@ return {
     keys = {
       { "<leader>e", "<cmd>Neotree toggle<cr>", desc = "NeoTree" },
       { "<leader>be", "<cmd>Neotree float buffers<cr>", desc = "NeoTree" },
+    },
+    opts={
+      window = {
+        width = 20
+      },
     }
-}
+  }

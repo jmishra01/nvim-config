@@ -1,6 +1,6 @@
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 local servers = {
-  "lua_ls", "ts_ls", "pyright", "gopls", "eslint", "taplo"
+  "lua_ls", "ts_ls", "pyright", "gopls", "eslint", "taplo", "svelte", "html", "clangd"
 }
 
 for _, lsp in ipairs(servers) do
@@ -18,6 +18,10 @@ vim.lsp.config("sqlls", {
   end
 })
 
+vim.lsp.enable(servers)
+vim.lsp.enable("sqlls")
+
+
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('UserLspConfig', {}),
   callback = function(ev)
@@ -26,7 +30,10 @@ vim.api.nvim_create_autocmd('LspAttach', {
     local opts = { buffer = ev.buf }
 
     vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
-    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+    vim.keymap.set('n', 'gd', function ()
+      -- vim.cmd("vsplit")
+      vim.lsp.buf.definition()
+    end, opts)
     vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
     vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
     vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)

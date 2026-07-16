@@ -11,12 +11,13 @@ return {
         ensure_installed = {
           "lua_ls",
           "pyright",
-          "rust_analyzer",
           "gopls",
           "taplo",
           "sqlls",
-          "eslint"
-        }
+          "eslint",
+          "html"
+        },
+        automatic_enable = false
       })
     end
   }, {
