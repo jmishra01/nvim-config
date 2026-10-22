@@ -9,6 +9,19 @@ for _, lsp in ipairs(servers) do
   })
 end
 
+-- Teach lua_ls about Neovim's runtime so `vim` is a known global with types
+vim.lsp.config("lua_ls", {
+  settings = {
+    Lua = {
+      runtime = { version = "LuaJIT" },
+      workspace = {
+        checkThirdParty = false,
+        library = { vim.env.VIMRUNTIME },
+      },
+    },
+  },
+})
+
 vim.lsp.config("sqlls", {
   capabilities = capabilities,
   cmd = { "sql-language-server", "up", "--method", "stdio" },
