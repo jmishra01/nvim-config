@@ -7,7 +7,15 @@
 --   }
 
 vim.diagnostic.config({
-  virtual_lines = true,
+  virtual_lines = {
+    -- hide rust-analyzer's "code is inactive due to #[cfg] directives" message
+    format = function(diagnostic)
+      if diagnostic.code == "inactive-code" then
+        return nil
+      end
+      return diagnostic.message
+    end,
+  },
   signs = true,          -- show signs in the sign column
   underline = true,      -- underline the text
   update_in_insert = false, -- delay updates while typing
