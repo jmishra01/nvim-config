@@ -13,8 +13,8 @@ vim.lsp.config("sqlls", {
   capabilities = capabilities,
   cmd = { "sql-language-server", "up", "--method", "stdio" },
   filetypes = { "sql", "mysql" },
-  root_dir = function()
-    return vim.loop.cwd()
+  root_dir = function(_, on_dir)
+    on_dir(vim.uv.cwd())
   end
 })
 

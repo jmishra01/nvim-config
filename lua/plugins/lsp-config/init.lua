@@ -21,22 +21,21 @@ return {
       })
     end
   }, {
-    "hrsh7th/nvim-cmp",
-    opts = function (_, opts)
-      opts.sources = opts.sources or {}
-      table.insert(opts.sources, {
-        name = "lazydev",
-        group_index = 0
-      })
-    end
-  }, {
     "neovim/nvim-lspconfig",
     dependencies = {
+      {"hrsh7th/nvim-cmp"},
       {"hrsh7th/cmp-nvim-lsp"},
+      {"hrsh7th/cmp-nvim-lsp-signature-help"},
+      {"saadparwaiz1/cmp_luasnip"},
       {"hrsh7th/cmp-buffer"},
       {"hrsh7th/cmp-path"},
       {"hrsh7th/cmp-nvim-lua"},
-      {"L3MON4D3/LuaSnip"},
+      {
+        "L3MON4D3/LuaSnip",
+        config = function()
+          require("luasnip.loaders.from_vscode").lazy_load()
+        end
+      },
       {"rafamadriz/friendly-snippets"}
     },
     config = function()

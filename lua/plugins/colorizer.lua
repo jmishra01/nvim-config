@@ -1,7 +1,7 @@
 return {
   "norcalli/nvim-colorizer.lua",
   config = function ()
-    require("colorize").setup({
+    require("colorizer").setup({
       "*", css = {rgb_fn = true},
     })
   end,

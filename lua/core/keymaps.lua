@@ -35,8 +35,8 @@ utils.nkeymap("<S-l>", ":bnext<CR>")
 utils.nkeymap("<S-h>", ":bprevious<CR>")
 
 -- Move text up and down
-utils.nkeymap("<A-j>", "<Esc>:m .+1<CR>==gi")
-utils.nkeymap("<A-k>", "<Esc>:m .-2<CR>==gi")
+utils.nkeymap("<A-j>", ":m .+1<CR>==")
+utils.nkeymap("<A-k>", ":m .-2<CR>==")
 
 -- Insert --
 -- Press jk fast to enter

@@ -2,7 +2,6 @@ require "core"
 require "pack"
 require("lazy").setup("plugins")
 
-vim.cmd[[colorscheme lunaperche]]
 
 
 -- vim.api.nvim_create_autocmd("CursorHold", {
@@ -27,8 +26,7 @@ vim.cmd[[colorscheme lunaperche]]
 --
 
 
-require("mytheme").setup()
-
+require("svelte-night").load()
 
 local rust_mir =  require("rust_mir");
 

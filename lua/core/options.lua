@@ -1,6 +1,6 @@
 -- print("Basic NeoVim!!")
 vim.g.mapleader = " "
-vim.g.python3_host_prog = "/home/jitendramishra/pycodes/.venv/bin/python3"
+vim.g.python3_host_prog = vim.fn.expand("~/pycodes/.venv/bin/python3")
 
 -- Encoding
 vim.scriptencoding = "utf-8"
